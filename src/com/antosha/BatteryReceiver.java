@@ -16,8 +16,7 @@ import android.widget.RemoteViews;
  * Date: 14.05.12
  */
 public class BatteryReceiver extends BroadcastReceiver {
-    private int i = 0;
-    private double _level = 0;
+    private int _level = 0;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -26,9 +25,9 @@ public class BatteryReceiver extends BroadcastReceiver {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             int rawlevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
             double scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
-            double level = -1;
+            int level = -1;
             if (rawlevel >= 0 && scale > 0) {
-                level = rawlevel / scale * 100;
+                level = (int)(rawlevel / scale * 100);
             }
 
         if(_level == level) {
@@ -37,7 +36,7 @@ public class BatteryReceiver extends BroadcastReceiver {
         _level = level;
 
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget);
-            remoteViews.setTextViewText(R.id.percent, ++i + " : " + level);
+            remoteViews.setTextViewText(R.id.percent, "" + level + "%");
             appWidgetManager.updateAppWidget(new ComponentName(context, BatteryWidget.class), remoteViews);
 //        }
     }

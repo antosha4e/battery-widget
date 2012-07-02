@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/main"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -9,25 +10,9 @@
                android:layout_height="wrap_content"/>
     <TextView android:id="@+id/percent"
               android:textColor="#FFF"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
               android:text="@string/widgetText"
               android:layout_margin="30dp"
-              android:gravity="center"/>
+              android:gravity="center|fill"/>
 </RelativeLayout>
-
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-              <!--android:orientation="vertical"-->
-              <!--android:background="#FFF"-->
-              <!--android:layout_width="fill_parent"-->
-              <!--android:layout_height="wrap_content" >-->
-    <!--<ImageView android:background="@drawable/battery"-->
-               <!--android:contentDescription="@string/widgetText"-->
-               <!--android:layout_width="wrap_content"-->
-               <!--android:layout_height="wrap_content"/>-->
-    <!--<TextView android:id="@+id/percent"-->
-              <!--android:textColor="#000"-->
-              <!--android:layout_width="fill_parent"-->
-              <!--android:layout_height="wrap_content"-->
-              <!--android:text="@string/widgetText" />-->
-<!--</LinearLayout>-->
